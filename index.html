@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content ="width=device-width, initial-scale=1.0">
+	<title>ToDo List</title>
+
+</head>
+<body>
+	<div class="container">
+		<h1>ToDo Lost</h1>
+		
+		<div id="newTask">
+			<input type="text" id="newTaskInput" placeholder = "Add Task">
+			<button id="addTask">Add</button>
+		</div>
+		
+		<ul id="taskList"></ul>
+	</div>
+	
+	<script>
+const taskList = document.getElementById('taskList');
+const newTaskInput = document.getElementById('newTaskInput');
+const addTaskBtn = document.getElementById('addTask');
+
+addTaskBtn.addEventListener('click', () => {
+	const taskContent = newTaskInput.value.trim();
+	
+	if  (!taskContent) {
+		return;
+	}
+	
+	const newTask = document.createElement('li');
+	newTask.classList.add('task');
+	
+	const checkbox = document.createElement('input');
+	checkbox.type = 'checkbox';
+	checkbox.classList.add('checkbox');
+	checkbox.addEventListener('change', () => {
+		newTask.classList.toggle('completed');
+		if (checkbox.checked) {
+			taskContentElement.style.textDecoration = 'line-through';
+		} else {
+			taskContentElement.style.textDecoration = 'none';
+		}
+	});
+	
+	const taskContentElement = document.createElement('span');
+	taskContentElement.classList.add('taskContent');
+	taskContentElement.textContent = taskContent;
+	
+	
+	newTask.appendChild(checkbox);
+	newTask.appendChild(taskContentElement);
+	
+	taskList.appendChild(newTask);
+	newTaskInput.value = '';
+});
+	
+	</script>
+</body>
+
+</html>
+
+
+
+
+
