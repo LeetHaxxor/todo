@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css');
+
 #taskList {
 	list-style: none;
 	padding: 0;
